@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsur5vc4bivyx"]
+
+[ext_resource type="Texture2D" uid="uid://4wb7gfr0461u" path="res://Spaceship-shooter#01/Background/Space02.png" id="1_xigqv"]
+
+[node name="Background" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 541.5)
+scale = Vector2(1.63167, 3.71667)
+texture = ExtResource("1_xigqv")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://b84db7s16rnc7"]
+
+[ext_resource type="PackedScene" uid="uid://bsur5vc4bivyx" path="res://scenes/background.tscn" id="1_3w848"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_i6ndd"]
+[ext_resource type="PackedScene" uid="uid://d1xw2q81k08us" path="res://scenes/player.tscn" id="2_st3ky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jycik"]
+size = Vector2(1957, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0d5"]
+size = Vector2(15.5, 1137.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mixg"]
+size = Vector2(1947, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eurp5"]
+size = Vector2(36, 1115)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_i6ndd")
+
+[node name="Background" parent="." instance=ExtResource("1_3w848")]
+position = Vector2(-1, 4)
+
+[node name="Player" parent="." instance=ExtResource("2_st3ky")]
+position = Vector2(969, 499)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 4
+
+[node name="Top" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(958.5, -10)
+shape = SubResource("RectangleShape2D_jycik")
+
+[node name="Left" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(-8.25, 548.75)
+shape = SubResource("RectangleShape2D_4c0d5")
+
+[node name="Bottom" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(965.5, 1093)
+shape = SubResource("RectangleShape2D_5mixg")
+
+[node name="Right" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(1938, 535.5)
+shape = SubResource("RectangleShape2D_eurp5")
+
+[node name="AsteroidTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Asteroids" type="Node2D" parent="."]
+
+[connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

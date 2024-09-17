@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xw2q81k08us"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_nsihe"]
+[ext_resource type="Texture2D" uid="uid://b27vqb5n46vbu" path="res://Spaceship-shooter#01/Spaceships/Spaceship#02(24x24).png" id="1_v4ni6"]
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_nsihe")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_v4ni6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -25, 6, 3, 24, 4, 24, 16, 5, 17, 0, 24, -4, 17, -24, 16, -24, 4, -6, 3)
