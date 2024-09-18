@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b84db7s16rnc7"]
+[gd_scene load_steps=9 format=3 uid="uid://b84db7s16rnc7"]
 
 [ext_resource type="PackedScene" uid="uid://bsur5vc4bivyx" path="res://scenes/background.tscn" id="1_3w848"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_i6ndd"]
 [ext_resource type="PackedScene" uid="uid://d1xw2q81k08us" path="res://scenes/player.tscn" id="2_st3ky"]
+[ext_resource type="PackedScene" uid="uid://bcqnmtbmi4pxj" path="res://scenes/ui.tscn" id="4_admf6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jycik"]
 size = Vector2(1957, 20)
@@ -21,11 +22,13 @@ script = ExtResource("1_i6ndd")
 
 [node name="Background" parent="." instance=ExtResource("1_3w848")]
 position = Vector2(-1, 4)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_st3ky")]
 position = Vector2(969, 499)
 
 [node name="Borders" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
 collision_layer = 4
@@ -53,6 +56,8 @@ autostart = true
 [node name="Asteroids" type="Node2D" parent="."]
 
 [node name="Lasers" type="Node2D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("4_admf6")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

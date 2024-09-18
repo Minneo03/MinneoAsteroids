@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcqnmtbmi4pxj"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_f545v"]
+
+[node name="UI" type="CanvasLayer" groups=["ui"]]
+script = ExtResource("1_f545v")
+
+[node name="Score Margin" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.5
+offset_right = 34.5
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 25
+
+[node name="Label" type="Label" parent="Score Margin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "1234
+"
+horizontal_alignment = 1
+
+[node name="Lives Margin" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 148.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Lives Margin"]
+layout_mode = 2
+theme_override_constants/separation = 7
