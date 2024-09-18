@@ -5,6 +5,10 @@ extends CharacterBody2D
 @export var default_deceleration_rate = 150
 @export var rotation_speed = 3
 
+var can_shoot: bool = true
+
+signal laser(pos, rot)
+
 var acceleration = Vector2()
 var deceleration_rate = default_deceleration_rate
 
@@ -46,9 +50,16 @@ func _process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	#position += direction * speed * delta
+	#Shooting
+	if Input.is_action_pressed("shoot") and can_shoot:
+		laser.emit($LaserStartPos.global_position, rotation_degrees)
+		can_shoot = false
+		$Reload.start()
 	
-	#if Input.is_action_pressed("ui_down"):
-	#	position += Vector2(1, 1) * 20 * delta
-	# get_node("PlayerImage").rotation += 0.1 * delta -> would target only the sprite "PlayerImage"
-	# $PlayerImage.rotation += 0.1 * delta -> same thhing but shorter
+func _on_reload_timeout() -> void:
+	can_shoot = true
+
+#if Input.is_action_pressed("ui_down"):
+#	position += Vector2(1, 1) * 20 * delta
+# get_node("PlayerImage").rotation += 0.1 * delta -> would target only the sprite "PlayerImage"
+# $PlayerImage.rotation += 0.1 * delta -> same thhing but shorter

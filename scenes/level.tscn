@@ -52,4 +52,7 @@ autostart = true
 
 [node name="Asteroids" type="Node2D" parent="."]
 
+[node name="Lasers" type="Node2D" parent="."]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]
