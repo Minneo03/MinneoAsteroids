@@ -14,9 +14,10 @@ func _ready():
 
 func _on_asteroid_timer_timeout() -> void:
 	var asteroid = asteroid_scene.instantiate()
-	
+	asteroid.scale.x = 3
 	$Asteroids.add_child(asteroid)
-	asteroid.connect('collision', _on_asteroid_collision)
+	#asteroid.connect('collision', _on_asteroid_collision)
+	asteroid.connect('collision', Callable(self, "_on_asteroid_collision"))
 
 func _on_asteroid_collision():
 	health -= 1

@@ -15,12 +15,20 @@ offset_bottom = 42.0
 grow_horizontal = 2
 theme_override_constants/margin_top = 25
 
-[node name="Label" type="Label" parent="Score Margin"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Score Margin"]
+layout_mode = 2
+
+[node name="LevelLabel" type="Label" parent="Score Margin/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Level: 1"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Score Margin/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-text = "1234
-"
+text = "Score: 0000"
 horizontal_alignment = 1
 
 [node name="Lives Margin" type="MarginContainer" parent="."]

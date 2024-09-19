@@ -11,3 +11,6 @@ func set_health(hp):
 		text_rect.texture = image
 		$"Lives Margin/HBoxContainer".add_child(text_rect)
 		text_rect.stretch_mode = TextureRect.STRETCH_KEEP
+
+func update_score(score):
+	$"Score Margin/VBoxContainer/ScoreLabel".text = "Score: " + str(score)
