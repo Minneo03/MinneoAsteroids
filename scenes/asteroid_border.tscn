@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnhg0di8ydc8f"]
+
+[sub_resource type="GDScript" id="GDScript_yrs0e"]
+script/source = "extends Area2D
+
+
+func _on_border_entered(area: Area2D) -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4755h"]
+
+[node name="asteroidBorder" type="Area2D"]
+script = SubResource("GDScript_yrs0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4755h")
+
+[connection signal="area_entered" from="." to="." method="_on_border_entered"]

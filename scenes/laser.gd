@@ -5,6 +5,7 @@ extends Area2D
 var direction = Vector2()
 
 func _ready():
+	add_to_group("Laser")
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, 'scale', Vector2(0.45,0.45), 0.2).from(Vector2(0.1,0.1))
 
