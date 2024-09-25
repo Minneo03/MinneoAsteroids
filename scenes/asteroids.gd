@@ -43,6 +43,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Laser"):
 		if scale.x > 0.75: #This value should be equal to the initial scale/4
 			#Destroys both the laser and the asteroid object
+			if($IFrames.time_left >= 0.0):
+				Global.can_be_hit = true
 			area.queue_free()
 			queue_free()
 			for i in 2: #This for loop will create 2 new asteroids half the size with slightly randomized values for speed, direction, and rotation.
@@ -82,12 +84,16 @@ func _on_area_entered(area: Area2D) -> void:
 func _on_collision() -> void:
 	if Global.can_be_hit == true: #This variables helps with IFrames so the player doesn't get hit 3 times in one second due to getting hit, splitting an asteroid, and getting hit by both children immediately.
 		Global.can_be_hit = false
+		print("Cant be hit")
 		$IFrames.start()
 		Global.health -= 1
 		get_tree().call_group('ui', 'set_health', Global.health)
 		if Global.health <= 0:
 			get_tree().change_scene_to_file("res://scenes/gameOverScreen.tscn")
+	else:
+		print("Invulnerable")
 
 #Again, IFrames need to be used.
 func _on_i_frames_timeout() -> void:
 	Global.can_be_hit = true
+	print("Can be hit")

@@ -55,11 +55,7 @@ func _process(delta: float) -> void:
 		laser.emit($LaserStartPos.global_position, rotation_degrees)
 		can_shoot = false
 		$Reload.start()
-	
+
+#Reload Timer
 func _on_reload_timeout() -> void:
 	can_shoot = true
-
-#if Input.is_action_pressed("ui_down"):
-#	position += Vector2(1, 1) * 20 * delta
-# get_node("PlayerImage").rotation += 0.1 * delta -> would target only the sprite "PlayerImage"
-# $PlayerImage.rotation += 0.1 * delta -> same thhing but shorter

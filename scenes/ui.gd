@@ -2,6 +2,7 @@ extends CanvasLayer
 
 static var image = load("res://Spaceship-shooter#01/Spaceships/Spaceship#02(24x24).png")
 
+#Updates the health shown on the bottom left of the screen
 func set_health(hp):
 	for child in $"Lives Margin/HBoxContainer".get_children():
 		child.queue_free()
@@ -12,6 +13,7 @@ func set_health(hp):
 		$"Lives Margin/HBoxContainer".add_child(text_rect)
 		text_rect.stretch_mode = TextureRect.STRETCH_KEEP
 
+#The next 3 methods update their relevant labels on the top of the UI during the main game.
 func update_level(level):
 	$"Score Margin/VBoxContainer/LevelLabel".text = "Level: " + str(level)
 
