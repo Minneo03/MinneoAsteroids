@@ -19,7 +19,7 @@ polygon = PackedVector2Array(0, -25, 6, 3, 24, 4, 24, 16, 5, 17, 0, 24, -4, 17, 
 position = Vector2(-4, -51)
 
 [node name="Reload" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 
 [connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

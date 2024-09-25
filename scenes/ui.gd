@@ -12,5 +12,11 @@ func set_health(hp):
 		$"Lives Margin/HBoxContainer".add_child(text_rect)
 		text_rect.stretch_mode = TextureRect.STRETCH_KEEP
 
+func update_level(level):
+	$"Score Margin/VBoxContainer/LevelLabel".text = "Level: " + str(level)
+
 func update_score(score):
 	$"Score Margin/VBoxContainer/ScoreLabel".text = "Score: " + str(score)
+	
+func update_time(time):
+	$"Score Margin/VBoxContainer/TimeLabel".text = "Time Until Next Level: " + str(time)

@@ -50,9 +50,16 @@ shape = SubResource("RectangleShape2D_5mixg")
 position = Vector2(1938, 535.5)
 shape = SubResource("RectangleShape2D_eurp5")
 
+[node name="LevelCooldown" type="Timer" parent="."]
+wait_time = 25.0
+one_shot = true
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="AsteroidTimer" type="Timer" parent="."]
 wait_time = 0.5
-one_shot = true
 autostart = true
 
 [node name="Asteroids" type="Node2D" parent="."]
@@ -68,12 +75,14 @@ position = Vector2(965, 1165)
 scale = Vector2(125, 1)
 
 [node name="asteroidBorder2" parent="AsteroidBorders" instance=ExtResource("5_rf5e5")]
-position = Vector2(2061, 533)
+position = Vector2(2099, 403)
 scale = Vector2(1, 70)
 
 [node name="asteroidBorder3" parent="AsteroidBorders" instance=ExtResource("5_rf5e5")]
-position = Vector2(-117, 553)
+position = Vector2(-153, 412)
 scale = Vector2(1, 70)
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="LevelCooldown" to="." method="_on_level_cooldown_timeout"]
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
 [connection signal="timeout" from="AsteroidTimer" to="." method="_on_asteroid_timer_timeout"]

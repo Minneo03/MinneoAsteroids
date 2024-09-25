@@ -4,7 +4,7 @@
 script/source = "extends Area2D
 
 
-func _on_border_entered(area: Area2D) -> void:
+func _on_border_entered(_area: Area2D) -> void:
 	pass # Replace with function body.
 "
 
