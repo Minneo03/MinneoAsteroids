@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b84db7s16rnc7"]
+[gd_scene load_steps=11 format=3 uid="uid://b84db7s16rnc7"]
 
 [ext_resource type="PackedScene" uid="uid://bsur5vc4bivyx" path="res://scenes/background.tscn" id="1_3w848"]
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_i6ndd"]
 [ext_resource type="PackedScene" uid="uid://d1xw2q81k08us" path="res://scenes/player.tscn" id="2_st3ky"]
 [ext_resource type="PackedScene" uid="uid://bcqnmtbmi4pxj" path="res://scenes/ui.tscn" id="4_admf6"]
 [ext_resource type="PackedScene" uid="uid://dnhg0di8ydc8f" path="res://scenes/asteroid_border.tscn" id="5_rf5e5"]
+[ext_resource type="PackedScene" uid="uid://dta1rrvx04q5g" path="res://scenes/rapid_fire.tscn" id="6_x1b4a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jycik"]
 size = Vector2(1957, 20)
@@ -55,7 +56,7 @@ wait_time = 25.0
 one_shot = true
 
 [node name="LevelTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.1
 one_shot = true
 
 [node name="AsteroidTimer" type="Timer" parent="."]
@@ -81,6 +82,8 @@ scale = Vector2(1, 70)
 [node name="asteroidBorder3" parent="AsteroidBorders" instance=ExtResource("5_rf5e5")]
 position = Vector2(-153, 412)
 scale = Vector2(1, 70)
+
+[node name="Rapid Fire" parent="." instance=ExtResource("6_x1b4a")]
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="LevelCooldown" to="." method="_on_level_cooldown_timeout"]

@@ -60,7 +60,9 @@ func _on_area_entered(area: Area2D) -> void:
 			queue_free()
 		Global.score += 1000
 		get_tree().call_group('ui', 'update_score', Global.score) 
-	else: #If the area entering the asteroid is the asteroid border, it will flip its position by mirroring it across the two middleX, middleY values.
+	elif (area.is_in_group("rapidFire")): #If the area entering the asteroid is the asteroid border, it will flip its position by mirroring it across the two middleX, middleY values.
+		print("buddy")
+	else:
 		if position.x > Global.middleX:
 			temp = position.x - Global.middleX
 			if position.y < Global.middleY*2:

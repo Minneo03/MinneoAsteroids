@@ -59,3 +59,6 @@ func _process(delta: float) -> void:
 #Reload Timer
 func _on_reload_timeout() -> void:
 	can_shoot = true
+
+func _on_rapid_fire() -> void:
+	$Reload.wait_time /=2

@@ -15,10 +15,10 @@ func set_health(hp):
 
 #The next 3 methods update their relevant labels on the top of the UI during the main game.
 func update_level(level):
-	$"Score Margin/VBoxContainer/LevelLabel".text = "Level: " + str(level)
+	$"Score Margin/VBoxContainer/LevelLabel".text = "Wave: " + str(level)
 
 func update_score(score):
 	$"Score Margin/VBoxContainer/ScoreLabel".text = "Score: " + str(score)
 	
 func update_time(time):
-	$"Score Margin/VBoxContainer/TimeLabel".text = "Time Until Next Level: " + str(time)
+	$"Score Margin/VBoxContainer/TimeLabel".text = "Time Until Next Wave: " + str(time)

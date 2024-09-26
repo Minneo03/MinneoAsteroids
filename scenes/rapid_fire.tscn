@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dta1rrvx04q5g"]
+
+[ext_resource type="Texture2D" uid="uid://s4j57jdmnf1b" path="res://Spaceship-shooter#01/Spaceships/Spaceship#01(24x24).png" id="1_335lu"]
+[ext_resource type="Script" path="res://scenes/rapidFire.gd" id="2_kcsr1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaa31"]
+radius = 53.0848
+
+[node name="Rapid Fire" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(850, 459)
+scale = Vector2(3, 2.83333)
+texture = ExtResource("1_335lu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(851, 462)
+shape = SubResource("CircleShape2D_yaa31")
+script = ExtResource("2_kcsr1")
+
+[connection signal="rapidFire" from="CollisionShape2D" to="CollisionShape2D" method="_on_rapid_fire"]
